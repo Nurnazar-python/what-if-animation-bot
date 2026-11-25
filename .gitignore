@@ -1,0 +1,10 @@
+node_modules/
+.env
+*.log
+out/
+public/*.wav
+*.mp4
+youtube_tokens.json
+client_secret.json
+__pycache__/
+*.pyc
