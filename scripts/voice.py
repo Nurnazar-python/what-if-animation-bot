@@ -56,13 +56,14 @@ if force or meta.get('sig') != sig or not raw_wav.exists() or not raw_words.exis
     # Force alignment with known text
     result = stable_whisper.alignment.align(model, str(raw_wav), text, 'en', verbose=False)
     words = []
-    for w in result.word_timestamps():
-        words.append({
-            'w': w['word'].strip(),
-            's': round(w['start'], 3),
-            'e': round(w['end'], 3),
-            'p': ''
-        })
+    for segment in result.segments:
+        for w in segment.words:
+            words.append({
+                'w': w.word.strip(),
+                's': round(w.start, 3),
+                'e': round(w.end, 3),
+                'p': ''
+            })
 
     # Punctuation: restore from original text
     original_words = re.findall(r"[\w']+|[.,!?;:…—\-]", text)
