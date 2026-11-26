@@ -1,2 +1,5 @@
 python-slugify
 requests
+edge-tts
+openai-whisper
+stable-ts

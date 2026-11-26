@@ -7,7 +7,7 @@ on:
 jobs:
   render:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 90
     env:
       ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
       TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
@@ -41,7 +41,7 @@ jobs:
 
       - name: Install Python dependencies
         run: |
-          pip install numpy Pillow requests
+          pip install numpy Pillow requests edge-tts openai-whisper stable-ts
 
       - name: Send Telegram "Starting"
         run: |
@@ -54,8 +54,8 @@ requests.post(f'https://api.telegram.org/bot{os.environ[\"TELEGRAM_BOT_TOKEN\"]}
       - name: Generate script & voice
         id: generate
         run: |
-          python ../.claude/skills/what-if-animation/scripts/voice.py ${{ github.event.client_payload.slug }}
-          python ../.claude/skills/what-if-animation/scripts/plan.py ${{ github.event.client_payload.slug }}
+          python scripts/voice.py ${{ github.event.client_payload.slug }}
+          python scripts/plan.py ${{ github.event.client_payload.slug }}
         working-directory: ./studio
 
       - name: Send Telegram "Voice Ready"
@@ -69,8 +69,8 @@ requests.post(f'https://api.telegram.org/bot{os.environ[\"TELEGRAM_BOT_TOKEN\"]}
       - name: Render storyboard stills
         run: |
           npx remotion still src/index.ts Cast out/cast.png
-          node ../.claude/skills/what-if-animation/scripts/stills.mjs ${{ github.event.client_payload.slug }}
-          python ../.claude/skills/what-if-animation/scripts/board.py ${{ github.event.client_payload.slug }}
+          node scripts/stills.mjs ${{ github.event.client_payload.slug }}
+          python scripts/board.py ${{ github.event.client_payload.slug }}
         working-directory: ./studio
 
       - name: Send Telegram "Storyboard Ready"
@@ -83,7 +83,7 @@ requests.post(f'https://api.telegram.org/bot{os.environ[\"TELEGRAM_BOT_TOKEN\"]}
 
       - name: Animate & render video
         run: |
-          python ../.claude/skills/what-if-animation/scripts/master.py ${{ github.event.client_payload.slug }}
+          python scripts/master.py ${{ github.event.client_payload.slug }}
         working-directory: ./studio
 
       - name: Send Telegram "Video Ready"

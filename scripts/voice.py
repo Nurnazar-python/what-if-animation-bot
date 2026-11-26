@@ -1,61 +1,89 @@
-"""Step 2: the voice. ElevenLabs text-to-speech with character timestamps, then the pauses tightened to the genre's pace.
+"""Step 2: the voice. Edge-TTS (Microsoft Edge neural voices) with stable-whisper alignment, then pauses tightened to the genre's pace.
 
 python <skill>/scripts/voice.py <slug> [--force]
 Reads  src/episodes/<slug>/episode.json  (script, voice, gaps)
-Writes public/<slug>/voice_raw.mp3, public/<slug>/voice.wav (tightened), src/episodes/<slug>/words.json (word timings
-       after tightening, used by plan.py) and out/<slug>/words_raw.json. Prints the credits it used.
+Writes public/<slug>/voice_raw.wav, public/<slug>/voice.wav (tightened), src/episodes/<slug>/words.json (word timings
+       after tightening, used by plan.py) and out/<slug>/words_raw.json.
 The API is only called when the text or the voice settings change (cached by a hash), so re-running to retune the
 gaps is free.
 
-episode.json "voice" (all optional): {"id": "TX3LPaxmHKxFdv7VOQHJ", "model": "eleven_multilingual_v2",
-  "settings": {"stability": 0.4, "similarity_boost": 0.8, "style": 0.35, "use_speaker_boost": true}}
-episode.json "gaps" (seconds, all optional): {"word": 0.12, "comma": 0.2, "sentence": 0.3, "question": 0.45,
-  "pairs": {"anything|One": 0.6}}  -> every pause longer than its limit is cut to the limit, from its middle.
+episode.json "voice" (all optional):
+  {"voice": "en-US-GuyNeural", "rate": "+0%", "pitch": "+0Hz"}
+episode.json "gaps" (seconds, all optional):
+  {"word": 0.12, "comma": 0.2, "sentence": 0.3, "question": 0.45,
+   "pairs": {"anything|One": 0.6}}  -> every pause longer than its limit is cut to the limit, from its middle.
 """
-import base64, hashlib, json, re, sys, time
+import asyncio, hashlib, json, re, sys, time, os, subprocess, tempfile
+from pathlib import Path
 
 import numpy as np
 
-from wi import SR, api, spent_since, decode, ep_dir, load_episode, load_json, log_cost, out_dir, pub_dir, save_json, write_wav
+from wi import SR, decode, ep_dir, load_episode, load_json, log_cost, out_dir, pub_dir, save_json, write_wav
 
 slug = sys.argv[1]
 force = '--force' in sys.argv
 ep = load_episode(slug)
-V = {'id': 'TX3LPaxmHKxFdv7VOQHJ', 'model': 'eleven_multilingual_v2', 'settings': {'stability': 0.4, 'similarity_boost': 0.8, 'style': 0.35, 'use_speaker_boost': True}}
+
+# Default Edge-TTS voice (male, natural, good for narration)
+V = {'voice': 'en-US-GuyNeural', 'rate': '+0%', 'pitch': '+0Hz'}
 V.update(ep.get('voice', {}))
+
 text = ' '.join(b['text'].strip() for b in ep['script'])
 sig = hashlib.sha1(json.dumps([text, V], sort_keys=True).encode()).hexdigest()[:12]
-raw_mp3 = pub_dir(slug) / 'voice_raw.mp3'
+raw_wav = pub_dir(slug) / 'voice_raw.wav'
 raw_words = out_dir(slug) / 'words_raw.json'
 meta = load_json(out_dir(slug) / 'voice_meta.json', {})
 
-if force or meta.get('sig') != sig or not raw_mp3.exists() or not raw_words.exists():
-    print(f'{len(text)} characters to ElevenLabs (voice {V["id"]})')
+if force or meta.get('sig') != sig or not raw_wav.exists() or not raw_words.exists():
+    print(f'{len(text)} characters to Edge-TTS (voice {V["voice"]})')
     t0 = time.time()
-    res = json.loads(api(f'/v1/text-to-speech/{V["id"]}/with-timestamps?output_format=mp3_44100_128', {'text': text, 'model_id': V['model'], 'voice_settings': V['settings']}))
-    raw_mp3.write_bytes(base64.b64decode(res['audio_base64']))
-    al = res['alignment']
-    words, cur = [], None
-    for ch, s, e in zip(al['characters'], al['character_start_times_seconds'], al['character_end_times_seconds']):
-        if re.match(r"[\w'’]", ch):
-            if cur is None:
-                cur = {'w': '', 's': s, 'e': e, 'p': ''}
-            cur['w'] += ch
-            cur['e'] = e
-        else:
-            if cur is not None:
-                words.append(cur)
-                cur = None
-            if words and ch.strip():
-                words[-1]['p'] += ch  # punctuation after the word decides how long its pause may be
-    if cur:
-        words.append(cur)
+
+    # ---- Edge-TTS ----
+    import edge_tts
+
+    async def synthesize():
+        communicate = edge_tts.Communicate(text, V['voice'], rate=V.get('rate', '+0%'), pitch=V.get('pitch', '+0Hz'))
+        await communicate.save(str(raw_wav))
+
+    asyncio.run(synthesize())
+
+    # ---- stable-whisper alignment (Whisper-based) ----
+    import stable_whisper
+    import stable_whisper.alignment
+
+    # Load a small Whisper model for alignment (fast, accurate enough)
+    model = stable_whisper.load_model('tiny', device='cpu')
+    # Force alignment with known text
+    result = stable_whisper.alignment.align(model, str(raw_wav), text, 'en', verbose=False)
+    words = []
+    for w in result.word_timestamps():
+        words.append({
+            'w': w['word'].strip(),
+            's': round(w['start'], 3),
+            'e': round(w['end'], 3),
+            'p': ''
+        })
+
+    # Punctuation: restore from original text
+    original_words = re.findall(r"[\w']+|[.,!?;:…—\-]", text)
+    idx = 0
     for w in words:
-        w['s'], w['e'] = round(w['s'], 3), round(w['e'], 3)
+        punct = ''
+        while idx < len(original_words) and not re.match(r"[\w']", original_words[idx]):
+            idx += 1
+        if idx < len(original_words):
+            if w['w'].lower() == original_words[idx].lower().rstrip(".,!?;:…—\\-"):
+                if idx + 1 < len(original_words) and re.match(r"[.,!?;:…—\-]", original_words[idx + 1]):
+                    punct = original_words[idx + 1]
+                    idx += 1
+            idx += 1
+        w['p'] = punct
+
     save_json(raw_words, words)
     save_json(out_dir(slug) / 'voice_meta.json', {'sig': sig, 'chars': len(text)})
-    used, n = spent_since(t0, expect=1)
-    log_cost(slug, 'voice', used, f'{len(text)} characters' + ('' if n else '; not in the history yet, check the usage page'))
+
+    # Edge-TTS is free, no credits
+    log_cost(slug, 'voice', 0, f'{len(text)} characters (Edge-TTS, free)')
 else:
     print('Voice unchanged since the last call: reusing it (no credits).')
 
@@ -63,7 +91,7 @@ else:
 words = load_json(raw_words)
 G = {'word': 0.12, 'comma': 0.2, 'sentence': 0.3, 'question': 0.45, 'pairs': {}}
 G.update(ep.get('gaps', {}))
-x = decode(raw_mp3)
+x = decode(raw_wav)
 cuts = []
 
 

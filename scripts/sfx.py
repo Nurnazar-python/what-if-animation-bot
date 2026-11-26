@@ -115,8 +115,14 @@ M = S.get('music')
 if M:
     m = clips[M['clip']]
     m0 = int(cue(M['from']) / FPS * SR) if M.get('from') else 0
-    n = min(len(music) - m0, len(m))
-    music[m0:m0 + n] = m[:n]
+
+    # Loop the music clip to fill the duration (fixes long video silence)
+    music_len = len(music) - m0
+    if music_len > 0:
+        repeats = int(np.ceil(music_len / len(m)))
+        looped = np.tile(m, repeats)[:music_len]
+        music[m0:] = looped
+
     for seg_look in M.get('reverse_looks', []):
         runs = []
         for s in tl['segments']:
