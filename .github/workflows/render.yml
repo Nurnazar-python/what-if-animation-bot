@@ -61,7 +61,6 @@ jobs:
         run: |
           python scripts/voice.py ${{ github.event.client_payload.slug }}
           python scripts/plan.py ${{ github.event.client_payload.slug }}
-        working-directory: ./studio
 
       - name: Send Telegram "Voice Ready"
         run: |
@@ -72,7 +71,6 @@ jobs:
           npx remotion still src/index.ts Cast out/cast.png
           node scripts/stills.mjs ${{ github.event.client_payload.slug }}
           python scripts/board.py ${{ github.event.client_payload.slug }}
-        working-directory: ./studio
 
       - name: Send Telegram "Storyboard Ready"
         run: |
@@ -81,7 +79,6 @@ jobs:
       - name: Animate & render video
         run: |
           python scripts/master.py ${{ github.event.client_payload.slug }}
-        working-directory: ./studio
 
       - name: Send Telegram "Video Ready"
         run: |
