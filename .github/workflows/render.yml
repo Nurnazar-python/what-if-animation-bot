@@ -104,7 +104,7 @@ jobs:
           youtube = build('youtube', 'v3', credentials=creds)
 
           slug = os.environ['SLUG']
-          video_path = f'studio/out/{slug}/{slug}-final.mp4'
+          video_path = f'out/{slug}/{slug}-final.mp4'
 
           request_body = {
               'snippet': {
