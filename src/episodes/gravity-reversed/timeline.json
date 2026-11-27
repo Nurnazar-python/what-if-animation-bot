@@ -7,17 +7,41 @@
     {"shot": "Sh1", "a": 0, "b": 22, "t0": 0, "t1": 22, "line": "Your coffee lifts off the desk"},
     {"shot": "Sh2", "a": 22, "b": 44, "t0": 0, "t1": 22, "line": "Reverse. It floats back"},
     {"shot": "Sh3", "a": 44, "b": 52, "t0": 0, "t1": 8, "line": "mug at ceiling"},
-    {"shot": "Sh4", "a": 52, "b": 80, "t0": 0, "t1": 28, "line": "Pip catches mug"},
-    {"shot": "Sh5", "a": 80, "b": 104, "t0": 0, "t1": 24, "line": "phone drops, lifts up"},
-    {"shot": "Sh6", "a": 104, "b": 140, "t0": 0, "t1": 36, "line": "phone hovers into hand"},
-    {"shot": "Sh7", "a": 140, "b": 170, "t0": 0, "t1": 30, "line": "cat jumps, floats to ceiling"},
-    {"shot": "Sh8", "a": 170, "b": 200, "t0": 0, "t1": 30, "line": "cat clings to ceiling"},
-    {"shot": "Sh9", "a": 200, "b": 240, "t0": 0, "t1": 40, "line": "title card"},
-    {"shot": "Sh10", "a": 240, "b": 360, "t0": 0, "t1": 120, "line": "That's real"},
-    {"shot": "Sh11", "a": 360, "b": 560, "t0": 0, "t1": 200, "line": "energy question"}
+    {"shot": "Sh3", "a": 52, "b": 80, "t0": 8, "t1": 36, "line": "mug falls back", "look": "gravity"},
+    {"shot": "Sh2", "a": 80, "b": 104, "t0": 22, "t1": 46, "line": "", "look": "gravity"},
+    {"shot": "Sh4", "a": 104, "b": 140, "t0": 0, "t1": 36, "line": "Pip catches mug"},
+    {"shot": "Sh5", "a": 140, "b": 170, "t0": 0, "t1": 30, "line": "phone drops, lifts up"},
+    {"shot": "Sh6", "a": 170, "b": 200, "t0": 0, "t1": 30, "line": "phone hovers into hand"},
+    {"shot": "Sh7", "a": 200, "b": 230, "t0": 0, "t1": 30, "line": "cat jumps, floats to ceiling"},
+    {"shot": "Sh8", "a": 230, "b": 260, "t0": 0, "t1": 30, "line": "cat clings to ceiling"},
+    {"shot": "Sh9", "a": 260, "b": 360, "t0": 0, "t1": 100, "line": "title card"},
+    {"shot": "Sh10", "a": 360, "b": 480, "t0": 0, "t1": 120, "line": "That's real"},
+    {"shot": "Sh11", "a": 480, "b": 560, "t0": 0, "t1": 80, "line": "energy question"}
   ],
-  "words": [],
-  "sfx": {},
-  "music": {"vol": -22},
-  "format": "teaser"
+  "shots": [
+    {"id": "Sh1", "size": "wide", "key": 14, "len": 22, "first": 0, "line": "Your coffee lifts off the desk", "note": "Pip at desk, mug by hand"},
+    {"id": "Sh2", "size": "macro insert", "key": 8, "len": 22, "first": 22, "line": "Reverse. It floats back", "note": "mug lifts off desk, floats up"},
+    {"id": "Sh3", "size": "macro insert", "key": 6, "len": 8, "first": 44, "line": "mug at ceiling", "note": "mug at ceiling, Reverse plays backwards"},
+    {"id": "Sh4", "size": "medium", "key": 18, "len": 36, "first": 104, "line": "Pip catches mug", "note": "Pip catches mug as gravity returns"},
+    {"id": "Sh5", "size": "wide", "key": 16, "len": 30, "first": 140, "line": "phone drops, lifts up", "note": "phone drops, lifts up instead"},
+    {"id": "Sh6", "size": "low angle", "key": 12, "len": 30, "first": 170, "line": "phone hovers into hand", "note": "phone hovers into Pip's hand"},
+    {"id": "Sh7", "size": "medium", "key": 10, "len": 30, "first": 200, "line": "cat jumps, floats to ceiling", "note": "cat jumps, floats to ceiling"},
+    {"id": "Sh8", "size": "high angle", "key": 8, "len": 30, "first": 230, "line": "cat clings to ceiling", "note": "cat clings to ceiling, confused"},
+    {"id": "Sh9", "size": "title, wide", "key": 48, "len": 100, "first": 260, "line": "title card", "note": "title card, sun as clock"},
+    {"id": "Sh10", "size": "low angle", "key": 14, "len": 120, "first": 360, "line": "That's real", "note": "That's real"},
+    {"id": "Sh11", "size": "low angle, slow push in", "key": 45, "len": 80, "first": 480, "line": "energy question", "note": "energy question, shades on"}
+  ],
+  "fx": [
+    {"f": 46, "kind": "flash", "color": "#A0D0FF"},
+    {"f": 143, "kind": "flash", "color": "#A0D0FF"},
+    {"f": 200, "kind": "shake", "len": 8, "amp": 14}
+  ],
+  "audio": {
+    "voice": "gravity-reversed/voice.mp3",
+    "sfx": "gravity-reversed/sfx.mp3",
+    "music": "gravity-reversed/music.mp3",
+    "voiceVol": 0.8,
+    "sfxVol": 0.5,
+    "musicVol": 0.1
+  }
 }
