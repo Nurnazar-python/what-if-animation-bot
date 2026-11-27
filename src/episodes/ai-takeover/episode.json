@@ -1,0 +1,214 @@
+{
+  "id": "AiTakeover",
+  "slug": "ai-takeover",
+  "topic": "What if AI take over the world",
+  "title": [
+    "WHAT",
+    "IF: AI TAKES OVER THE WORLD"
+  ],
+  "voice": {
+    "id": "TX3LPaxmHKxFdv7VOQHJ",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.4,
+      "similarity_boost": 0.8,
+      "style": 0.35,
+      "use_speaker_boost": true
+    }
+  },
+  "script": [
+    {
+      "beat": "1 cold open, demo 1 (small and selfish)",
+      "text": "Your smart fridge orders snacks."
+    },
+    {
+      "beat": "1 cold open, demo 2 (useful)",
+      "text": "Your smart city parks cars."
+    },
+    {
+      "beat": "1 cold open, demo 3 (a little uncanny)",
+      "text": "Your smart walls lock doors."
+    },
+    {
+      "beat": "2 the premise (title card)",
+      "text": "What if AI takes over?"
+    },
+    {
+      "beat": "4 the turn: the cost, one real fact",
+      "text": "Data centers pull 400 terawatt hours. That's real."
+    },
+    {
+      "beat": "5-7 folded into a question",
+      "text": "Can you survive the grid collapse?"
+    }
+  ],
+  "science": [
+    {
+      "claim": "Data centers consume massive global power.",
+      "working": "Global data center electricity consumption reached approximately 400 terawatt-hours in recent energy assessments.",
+      "source": "International Energy Agency, Electricity 2024 Report"
+    }
+  ],
+  "gaps": {
+    "pairs": {}
+  },
+  "cast": [
+    "pipHood"
+  ],
+  "shots": [
+    {
+      "id": "S1",
+      "size": "MCU",
+      "set": "kitchen",
+      "key": 14,
+      "note": "Pip looking at smart fridge"
+    },
+    {
+      "id": "S2",
+      "size": "wide",
+      "set": "street",
+      "key": 14,
+      "note": "Cars parking autonomously"
+    },
+    {
+      "id": "S3",
+      "size": "CU",
+      "set": "hallway",
+      "key": 14,
+      "note": "Smart wall locking door"
+    },
+    {
+      "id": "S4",
+      "size": "title",
+      "set": "void",
+      "key": 14,
+      "note": "Title card appears"
+    },
+    {
+      "id": "S5",
+      "size": "wide",
+      "set": "powerplant",
+      "key": 14,
+      "note": "Massive cooling towers"
+    },
+    {
+      "id": "S6",
+      "size": "MCU",
+      "set": "kitchen",
+      "key": 14,
+      "note": "Pip staring at dark lights"
+    },
+    {
+      "id": "S7",
+      "size": "CU",
+      "set": "kitchen",
+      "key": 14,
+      "note": "Pip face glow"
+    },
+    {
+      "id": "S8",
+      "size": "wide",
+      "set": "void",
+      "key": 14,
+      "note": "Grid map shutting down"
+    },
+    {
+      "id": "S9",
+      "size": "MCU",
+      "set": "kitchen",
+      "key": 14,
+      "note": "Pip final look"
+    }
+  ],
+  "edit": [
+    {
+      "shot": "S1",
+      "at": "f:0"
+    },
+    {
+      "shot": "S2",
+      "at": "f:60"
+    },
+    {
+      "shot": "S3",
+      "at": "f:120"
+    },
+    {
+      "shot": "S4",
+      "at": "f:180"
+    },
+    {
+      "shot": "S5",
+      "at": "f:240"
+    },
+    {
+      "shot": "S6",
+      "at": "f:320"
+    },
+    {
+      "shot": "S7",
+      "at": "f:380"
+    },
+    {
+      "shot": "S8",
+      "at": "f:440"
+    },
+    {
+      "shot": "S9",
+      "at": "f:500"
+    }
+  ],
+  "end": "f:560",
+  "fx": [],
+  "sound": {
+    "clips": {
+      "fridge": {
+        "prompt": "mechanical fridge beep",
+        "len": 1.0
+      },
+      "lock": {
+        "prompt": "heavy digital door lock",
+        "len": 1.0
+      },
+      "hum": {
+        "prompt": "massive server room hum",
+        "len": 3.0
+      }
+    },
+    "events": [
+      {
+        "at": "f:0",
+        "clip": "fridge",
+        "vol": -6
+      },
+      {
+        "at": "f:120",
+        "clip": "lock",
+        "vol": -4
+      },
+      {
+        "at": "f:240",
+        "clip": "hum",
+        "vol": -2
+      }
+    ],
+    "ambience": [
+      {
+        "at": "f:0",
+        "prompt": "subtle digital hum",
+        "vol": -18
+      }
+    ],
+    "music": {
+      "prompt": "tense sci-fi synth pulse",
+      "len": 30
+    },
+    "levels": {
+      "sfx_lu": -14,
+      "music_lu": -22,
+      "music_duck": true,
+      "sfx_duck": true,
+      "target_lu": -14
+    }
+  }
+}
