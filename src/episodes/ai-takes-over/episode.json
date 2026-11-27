@@ -1,0 +1,225 @@
+{
+  "id": "AiTakesOver",
+  "slug": "ai-takes-over",
+  "topic": "What if AI take over the world?",
+  "title": [
+    "WHAT",
+    "IF: AI TAKES OVER THE WORLD"
+  ],
+  "voice": {
+    "id": "TX3LPaxmHKxFdv7VOQHJ",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.4,
+      "similarity_boost": 0.8,
+      "style": 0.35,
+      "use_speaker_boost": true
+    }
+  },
+  "script": [
+    {
+      "beat": "1 cold open, demo 1 (small and selfish)",
+      "text": "Your smart speaker makes toast."
+    },
+    {
+      "beat": "1 cold open, demo 2 (useful)",
+      "text": "Your car drives you everywhere."
+    },
+    {
+      "beat": "1 cold open, demo 3 (a little uncanny)",
+      "text": "Every screen whispers your name."
+    },
+    {
+      "beat": "2 the premise (title card)",
+      "text": "What if AI takes over?"
+    },
+    {
+      "beat": "4 the turn: the cost, one real fact",
+      "text": "Over eighty percent of firms now use automation. That's real."
+    },
+    {
+      "beat": "5-7 folded into a question",
+      "text": "When code runs the planet, who stays in charge?"
+    }
+  ],
+  "science": [
+    {
+      "claim": "Over 80 percent of firms use automation",
+      "working": "IBM's Global AI Adoption Index shows 42% adoption with another 40% exploring, totaling 82% utilizing or exploring AI technologies.",
+      "source": "IBM Global AI Adoption Index 2022"
+    }
+  ],
+  "gaps": {
+    "pairs": {}
+  },
+  "cast": [
+    "pipHood"
+  ],
+  "shots": [
+    {
+      "id": "S1",
+      "size": "wide",
+      "set": "kitchen",
+      "key": 14,
+      "note": "pip watches toaster"
+    },
+    {
+      "id": "S2",
+      "size": "medium",
+      "set": "street",
+      "key": 22,
+      "note": "car drives by"
+    },
+    {
+      "id": "S3",
+      "size": "close",
+      "set": "livingRoom",
+      "key": 30,
+      "note": "screens glowing"
+    },
+    {
+      "id": "S4",
+      "size": "wide",
+      "set": "titleCard",
+      "key": 45,
+      "note": "title display"
+    },
+    {
+      "id": "S5",
+      "size": "medium",
+      "set": "office",
+      "key": 60,
+      "note": "servers blinking"
+    },
+    {
+      "id": "S6",
+      "size": "close",
+      "set": "office",
+      "key": 75,
+      "note": "data streams"
+    },
+    {
+      "id": "S7",
+      "size": "wide",
+      "set": "cityNight",
+      "key": 90,
+      "note": "skyline lights"
+    },
+    {
+      "id": "S8",
+      "size": "medium",
+      "set": "cityNight",
+      "key": 105,
+      "note": "drone swarms"
+    },
+    {
+      "id": "S9",
+      "size": "close",
+      "set": "pipRoom",
+      "key": 120,
+      "note": "pip looks up"
+    },
+    {
+      "id": "S10",
+      "size": "wide",
+      "set": "pipRoom",
+      "key": 135,
+      "note": "room goes dark"
+    }
+  ],
+  "edit": [
+    {
+      "shot": "S1",
+      "at": "f:0"
+    },
+    {
+      "shot": "S2",
+      "at": "f:45"
+    },
+    {
+      "shot": "S3",
+      "at": "f:90"
+    },
+    {
+      "shot": "S4",
+      "at": "f:135"
+    },
+    {
+      "shot": "S5",
+      "at": "f:180"
+    },
+    {
+      "shot": "S6",
+      "at": "f:230"
+    },
+    {
+      "shot": "S7",
+      "at": "f:280"
+    },
+    {
+      "shot": "S8",
+      "at": "f:330"
+    },
+    {
+      "shot": "S9",
+      "at": "f:380"
+    },
+    {
+      "shot": "S10",
+      "at": "f:430"
+    }
+  ],
+  "end": "f:480",
+  "fx": [],
+  "sound": {
+    "clips": {
+      "toaster": {
+        "prompt": "toaster pop",
+        "len": 1.2
+      },
+      "car": {
+        "prompt": "electric car pass",
+        "len": 1.5
+      },
+      "glitch": {
+        "prompt": "digital glitch",
+        "len": 1.0
+      }
+    },
+    "events": [
+      {
+        "at": "f:0",
+        "clip": "toaster",
+        "gain": 0.8
+      },
+      {
+        "at": "f:45",
+        "clip": "car",
+        "gain": 0.7
+      },
+      {
+        "at": "f:90",
+        "clip": "glitch",
+        "gain": 0.9
+      }
+    ],
+    "ambience": [
+      {
+        "at": "f:0",
+        "clip": "roomtone",
+        "gain": 0.2
+      }
+    ],
+    "music": {
+      "prompt": "Dark cinematic synth pulse, ticking rhythm, sci-fi atmosphere",
+      "len": 25
+    },
+    "levels": {
+      "sfx_lu": -14,
+      "music_lu": -22,
+      "music_duck": true,
+      "sfx_duck": true,
+      "target_lu": -14
+    }
+  }
+}
