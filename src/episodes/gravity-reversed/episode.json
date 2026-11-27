@@ -1,0 +1,80 @@
+{
+  "format": "teaser",
+  "id": "GravityReversed",
+  "slug": "gravity-reversed",
+  "topic": "What if gravity reversed for 10 seconds?",
+  "title": ["WHAT IF GRAVITY", "REVERSED FOR 10 SECONDS?"],
+  "voice": {"id": "TX3LPaxmHKxFdv7VOQHJ", "model": "eleven_multilingual_v2", "settings": {"stability": 0.4, "similarity_boost": 0.8, "style": 0.35, "use_speaker_boost": true}},
+  "script": [
+    {"beat": "1 cold open, demo 1 (small and selfish)", "text": "Your coffee lifts off the desk. Reverse. It floats back."},
+    {"beat": "1 cold open, demo 2 (useful)", "text": "You drop your phone. Reverse. It hovers into your hand."},
+    {"beat": "1 cold open, demo 3 (a little uncanny)", "text": "Your cat leaps up. Reverse. It clings to the ceiling."},
+    {"beat": "2 the premise (title card)", "text": "What if gravity reversed for ten seconds, any time you want?"},
+    {"beat": "4 the turn: the cost, one real fact", "text": "One catch: to reverse gravity on Earth, you'd need negative mass. The energy equals all sunlight hitting Earth for a week. That's real."},
+    {"beat": "5-7 folded into a question", "text": "So where does the energy come from?"}
+  ],
+  "science": [
+    {
+      "claim": "Reversing gravity on Earth requires negative mass or energy equivalent to all sunlight hitting Earth for ~1 week.",
+      "working": "Earth's gravitational binding energy ~2.5×10^32 J. Solar constant 1361 W/m² × Earth cross-section × 604800s ≈ 2.5×10^32 J.",
+      "source": "Gravitational binding energy of Earth (U = 3GM²/5R); Solar constant from NASA"
+    }
+  ],
+  "gaps": {"pairs": {}},
+  "cast": ["pipHood"],
+  "shots": [
+    {"id": "Sh1", "size": "wide", "set": "study", "key": 14, "note": "Pip at desk, mug by hand"},
+    {"id": "Sh2", "size": "macro insert", "set": "study (desk top)", "key": 8, "note": "mug lifts off desk, floats up"},
+    {"id": "Sh3", "size": "macro insert", "set": "study (ceiling)", "key": 6, "note": "mug at ceiling, Reverse plays backwards"},
+    {"id": "Sh4", "size": "medium", "set": "study", "key": 18, "note": "Pip catches mug as gravity returns"},
+    {"id": "Sh5", "size": "wide", "set": "stairwell", "key": 16, "note": "phone drops, lifts up instead"},
+    {"id": "Sh6", "size": "low angle", "set": "stairwell", "key": 12, "note": "phone hovers into Pip's hand"},
+    {"id": "Sh7", "size": "medium", "set": "kitchen", "key": 10, "note": "cat jumps, floats to ceiling"},
+    {"id": "Sh8", "size": "high angle", "set": "kitchen (ceiling)", "key": 8, "note": "cat clings to ceiling, confused"},
+    {"id": "Sh9", "size": "title, wide", "set": "rooftop", "key": 48, "note": "title card, sun as clock"},
+    {"id": "Sh10", "size": "low angle", "set": "rooftop", "key": 14, "note": "That's real"},
+    {"id": "Sh11", "size": "low angle, slow push in", "set": "rooftop", "key": 45, "note": "energy question, shades on"}
+  ],
+  "edit": [
+    {"shot": "Sh1", "at": "f:0"},
+    {"shot": "Sh2", "at": "f:22"},
+    {"shot": "Sh3", "at": "f:44"},
+    {"shot": "Sh3", "at": "f:52", "reverse": true, "look": "gravity"},
+    {"shot": "Sh2", "at": "f:58", "reverse": true, "to": 3, "look": "gravity"},
+    {"shot": "Sh4", "at": "f:80"},
+    {"shot": "Sh5", "at": "f:104"},
+    {"shot": "Sh6", "at": "f:140"},
+    {"shot": "Sh7", "at": "f:170"},
+    {"shot": "Sh8", "at": "f:200"},
+    {"shot": "Sh9", "at": "f:240"},
+    {"shot": "Sh10", "at": "f:360"},
+    {"shot": "Sh11", "at": "f:400"}
+  ],
+  "end": "f:560",
+  "fx": [
+    {"at": "f:46", "kind": "flash", "color": "#A0D0FF"},
+    {"at": "f:143", "kind": "flash", "color": "#A0D0FF"},
+    {"at": "f:200", "kind": "shake", "len": 8, "amp": 14}
+  ],
+  "sound": {
+    "clips": {
+      "float_up": ["object defying gravity, gentle rising whoosh with subtle shimmer", 1.2],
+      "gravity_snap": ["sudden gravity return, low thrum and air displacement", 0.8],
+      "ceiling_cling": ["soft impact of paws on ceiling, light padding sound", 0.5]
+    },
+    "events": [
+      {"at": "Sh2+4", "clip": "float_up", "vol": -6},
+      {"at": "Sh3+2", "clip": "gravity_snap", "vol": -3},
+      {"at": "Sh6+4", "clip": "float_up", "vol": -6},
+      {"at": "Sh8+2", "clip": "ceiling_cling", "vol": -12}
+    ],
+    "ambience": [
+      {"set": "study", "clip": "room_tone", "len": 18},
+      {"set": "stairwell", "clip": "room_tone", "len": 12},
+      {"set": "kitchen", "clip": "room_tone", "len": 12},
+      {"set": "rooftop", "clip": "roof_wind", "len": 20}
+    ],
+    "music": {"prompt": "ambient drone, low tension, slow build, minor key", "len": 30},
+    "levels": {"sfx_lu": -14, "music_lu": -22, "music_duck": true, "sfx_duck": true, "target_lu": -14}
+  }
+}
