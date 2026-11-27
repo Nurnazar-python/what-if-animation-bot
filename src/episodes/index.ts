@@ -2,5 +2,6 @@
 import { rewind } from './rewind';
 import { copyPaste } from './copy-paste';
 import { gravityReversed } from './gravity-reversed';
+import { moonDisappears } from './moon-disappears';
 
-export const EPISODES = [rewind, copyPaste, gravityReversed];
+export const EPISODES = [rewind, copyPaste, gravityReversed, moonDisappears];
