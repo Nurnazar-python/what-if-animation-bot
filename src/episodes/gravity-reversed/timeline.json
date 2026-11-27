@@ -1,16 +1,20 @@
 {
-  "shots": [
-    {"id": "Sh1", "a": 0, "b": 100, "shot": "Sh1"},
-    {"id": "Sh2", "a": 100, "b": 200, "shot": "Sh2"},
-    {"id": "Sh3", "a": 200, "b": 300, "shot": "Sh3"},
-    {"id": "Sh4", "a": 300, "b": 400, "shot": "Sh4"},
-    {"id": "Sh5", "a": 400, "b": 500, "shot": "Sh5"},
-    {"id": "Sh6", "a": 500, "b": 600, "shot": "Sh6"},
-    {"id": "Sh7", "a": 600, "b": 700, "shot": "Sh7"},
-    {"id": "Sh8", "a": 700, "b": 800, "shot": "Sh8"},
-    {"id": "Sh9", "a": 800, "b": 900, "shot": "Sh9"},
-    {"id": "Sh10", "a": 900, "b": 1000, "shot": "Sh10"},
-    {"id": "Sh11", "a": 1000, "b": 1100, "shot": "Sh11"}
+  "slug": "gravity-reversed",
+  "title": "WHAT IF GRAVITY REVERSED FOR 10 SECONDS?",
+  "fps": 30,
+  "total": 560,
+  "segments": [
+    {"shot": "Sh1", "a": 0, "b": 22, "t0": 0, "t1": 22, "line": "Your coffee lifts off the desk"},
+    {"shot": "Sh2", "a": 22, "b": 44, "t0": 0, "t1": 22, "line": "Reverse. It floats back"},
+    {"shot": "Sh3", "a": 44, "b": 52, "t0": 0, "t1": 8, "line": "mug at ceiling"},
+    {"shot": "Sh4", "a": 52, "b": 80, "t0": 0, "t1": 28, "line": "Pip catches mug"},
+    {"shot": "Sh5", "a": 80, "b": 104, "t0": 0, "t1": 24, "line": "phone drops, lifts up"},
+    {"shot": "Sh6", "a": 104, "b": 140, "t0": 0, "t1": 36, "line": "phone hovers into hand"},
+    {"shot": "Sh7", "a": 140, "b": 170, "t0": 0, "t1": 30, "line": "cat jumps, floats to ceiling"},
+    {"shot": "Sh8", "a": 170, "b": 200, "t0": 0, "t1": 30, "line": "cat clings to ceiling"},
+    {"shot": "Sh9", "a": 200, "b": 240, "t0": 0, "t1": 40, "line": "title card"},
+    {"shot": "Sh10", "a": 240, "b": 360, "t0": 0, "t1": 120, "line": "That's real"},
+    {"shot": "Sh11", "a": 360, "b": 560, "t0": 0, "t1": 200, "line": "energy question"}
   ],
   "words": [],
   "sfx": {},
