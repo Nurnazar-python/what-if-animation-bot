@@ -1,0 +1,155 @@
+{
+  "slug": "moon-disappears",
+  "title": "What If The Moon Disappeared?",
+  "fps": 30,
+  "total": 560,
+  "segments": [
+    {
+      "shot": "Sh1",
+      "a": 0,
+      "b": 60,
+      "t0": 0,
+      "t1": 60,
+      "line": "Stargazing is ruined instantly."
+    },
+    {
+      "shot": "Sh2",
+      "a": 60,
+      "b": 120,
+      "t0": 60,
+      "t1": 120,
+      "line": "Tides vanish into a permanent gentle lake."
+    },
+    {
+      "shot": "Sh3",
+      "a": 120,
+      "b": 180,
+      "t0": 120,
+      "t1": 180,
+      "line": "Nights plunge into absolute pitch blackness."
+    },
+    {
+      "shot": "Sh4",
+      "a": 180,
+      "b": 240,
+      "t0": 180,
+      "t1": 240,
+      "line": "What if the Moon disappeared tomorrow?"
+    },
+    {
+      "shot": "Sh5",
+      "a": 240,
+      "b": 320,
+      "t0": 240,
+      "t1": 320,
+      "line": "Earth's axis wobbles wildly. That's real."
+    },
+    {
+      "shot": "Sh6",
+      "a": 320,
+      "b": 420,
+      "t0": 320,
+      "t1": 420,
+      "line": "Could life survive without our ancient silver shield?"
+    },
+    {
+      "shot": "Sh7",
+      "a": 420,
+      "b": 500,
+      "t0": 420,
+      "t1": 500,
+      "line": ""
+    },
+    {
+      "shot": "Sh8",
+      "a": 500,
+      "b": 560,
+      "t0": 500,
+      "t1": 560,
+      "line": ""
+    }
+  ],
+  "shots": [
+    {
+      "id": "Sh1",
+      "size": "wide",
+      "key": 14,
+      "len": 60,
+      "first": 0,
+      "line": "Stargazing is ruined instantly."
+    },
+    {
+      "id": "Sh2",
+      "size": "macro",
+      "key": 22,
+      "len": 60,
+      "first": 60,
+      "line": "Tides vanish into a permanent gentle lake."
+    },
+    {
+      "id": "Sh3",
+      "size": "medium",
+      "key": 30,
+      "len": 60,
+      "first": 120,
+      "line": "Nights plunge into absolute pitch blackness."
+    },
+    {
+      "id": "Sh4",
+      "size": "wide",
+      "key": 20,
+      "len": 60,
+      "first": 180,
+      "line": "What if the Moon disappeared tomorrow?"
+    },
+    {
+      "id": "Sh5",
+      "size": "close-up",
+      "key": 25,
+      "len": 80,
+      "first": 240,
+      "line": "Earth's axis wobbles wildly. That's real."
+    },
+    {
+      "id": "Sh6",
+      "size": "wide",
+      "key": 35,
+      "len": 100,
+      "first": 320,
+      "line": "Could life survive without our ancient silver shield?"
+    },
+    {
+      "id": "Sh7",
+      "size": "high",
+      "key": 28,
+      "len": 80,
+      "first": 420
+    },
+    {
+      "id": "Sh8",
+      "size": "close-up",
+      "key": 20,
+      "len": 60,
+      "first": 500
+    }
+  ],
+  "fx": [
+    {
+      "f": 120,
+      "kind": "flash",
+      "color": "#ffffff",
+      "len": 10
+    },
+    {
+      "f": 420,
+      "kind": "shake",
+      "amp": 5,
+      "len": 15
+    }
+  ],
+  "audio": {
+    "voiceVol": 1.0,
+    "sfxVol": 0.8,
+    "musicVol": 0.5
+  }
+}
