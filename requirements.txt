@@ -1,5 +1,22 @@
+# Core animation pipeline
 python-slugify
 requests
 edge-tts
 openai-whisper
 stable-ts
+numpy
+Pillow
+stable-whisper
+
+# Bot & AI
+python-telegram-bot==21.4
+fastapi==0.112.0
+uvicorn==0.30.0
+freelm==0.5.2
+python-dotenv==1.0.1
+httpx==0.27.0
+psycopg2-binary==2.9.9
+
+# YouTube upload
+google-auth
+google-api-python-client
