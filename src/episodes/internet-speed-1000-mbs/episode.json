@@ -1,0 +1,183 @@
+{
+  "format": "teaser",
+  "id": "InternetSpeed1000Mbs",
+  "slug": "internet-speed-1000-mbs",
+  "topic": "What if my internet speed increases to 1000 Mb/s?",
+  "title": [
+    "WHAT",
+    "IF: 1000 MB/S INTERNET SPEED"
+  ],
+  "voice": {
+    "id": "TX3LPaxmHKxFdv7VOQHJ",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.4,
+      "similarity_boost": 0.8,
+      "style": 0.35,
+      "use_speaker_boost": true
+    }
+  },
+  "script": [
+    {
+      "beat": "1 cold open, demo 1 (small and selfish)",
+      "text": "Your eighty gigabyte game downloads in four minutes flat."
+    },
+    {
+      "beat": "1 cold open, demo 2 (useful)",
+      "text": "Fourteen 4K video streams load simultaneously with zero lag."
+    },
+    {
+      "beat": "1 cold open, demo 3 (a little uncanny)",
+      "text": "Cloud backups happen instantly before you even close the file."
+    },
+    {
+      "beat": "2 the premise (title card)",
+      "text": "What if your internet speed hit one thousand megabits per second?"
+    },
+    {
+      "beat": "4 the turn: the cost, one real fact",
+      "text": "Most home Wi-Fi routers bottleneck gigabit fiber. That's real."
+    },
+    {
+      "beat": "5-7 folded into a question",
+      "text": "How fast is fast enough?"
+    }
+  ],
+  "science": [
+    {
+      "claim": "Wi-Fi routers bottleneck gigabit fiber",
+      "working": "Standard wireless protocols and hardware interference often limit actual throughput to a fraction of wired gigabit connections.",
+      "source": "IEEE 802.11ax Standards and Testing"
+    }
+  ],
+  "gaps": {
+    "pairs": {}
+  },
+  "cast": [
+    "pipHood"
+  ],
+  "shots": [
+    {
+      "id": "S1",
+      "size": "wide",
+      "set": "study",
+      "key": 14,
+      "note": "Pip at desk with download meter"
+    },
+    {
+      "id": "S2",
+      "size": "macro",
+      "set": "desk",
+      "key": 12,
+      "note": "Meter rockets to 1000 mb/s"
+    },
+    {
+      "id": "S3",
+      "size": "medium",
+      "set": "study",
+      "key": 18,
+      "note": "Multiple screens pop up"
+    },
+    {
+      "id": "S4",
+      "size": "close-up",
+      "set": "study",
+      "key": 15,
+      "note": "Pip stares in awe"
+    },
+    {
+      "id": "S5",
+      "size": "wide",
+      "set": "study",
+      "key": 22,
+      "note": "Title card drop"
+    },
+    {
+      "id": "S6",
+      "size": "macro",
+      "set": "router",
+      "key": 16,
+      "note": "Router blinking fast"
+    },
+    {
+      "id": "S7",
+      "size": "over-shoulder",
+      "set": "study",
+      "key": 20,
+      "note": "Cloud backup flashes"
+    },
+    {
+      "id": "S8",
+      "size": "wide",
+      "set": "study",
+      "key": 14,
+      "note": "Final question look"
+    }
+  ],
+  "edit": [
+    {
+      "shot": "S1",
+      "at": "f:0"
+    },
+    {
+      "shot": "S2",
+      "at": "f:45"
+    },
+    {
+      "shot": "S3",
+      "at": "f:90"
+    },
+    {
+      "shot": "S4",
+      "at": "f:140"
+    },
+    {
+      "shot": "S5",
+      "at": "f:200"
+    },
+    {
+      "shot": "S6",
+      "at": "f:280"
+    },
+    {
+      "shot": "S7",
+      "at": "f:360"
+    },
+    {
+      "shot": "S8",
+      "at": "f:460"
+    }
+  ],
+  "end": "f:560",
+  "fx": [
+    {
+      "f": 45,
+      "kind": "flash",
+      "color": "#00ffff",
+      "o": 0.8,
+      "len": 10
+    },
+    {
+      "f": 200,
+      "kind": "shake",
+      "amp": 4,
+      "len": 15
+    }
+  ],
+  "sound": {
+    "clips": {},
+    "events": [],
+    "ambience": [],
+    "music": {
+      "prompt": "High tech electronic synth pulse, fast beat, futuristic, 130 bpm",
+      "len": 30
+    },
+    "levels": {
+      "sfx_lu": -14,
+      "music_lu": -22,
+      "music_duck": true,
+      "sfx_duck": true,
+      "target_lu": -14
+    }
+  }
+}
