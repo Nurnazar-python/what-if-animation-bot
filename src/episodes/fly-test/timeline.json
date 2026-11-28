@@ -1,0 +1,113 @@
+{
+ "slug": "fly-test",
+ "title": "WHAT IF YOU COULD FLY?",
+ "fps": 30,
+ "total": 450,
+ "segments": [
+  {
+   "shot": "S1",
+   "a": 0,
+   "b": 112,
+   "t0": 0,
+   "t1": 112,
+   "line": ""
+  },
+  {
+   "shot": "S2",
+   "a": 112,
+   "b": 224,
+   "t0": 0,
+   "t1": 112,
+   "line": ""
+  },
+  {
+   "shot": "S3",
+   "a": 224,
+   "b": 336,
+   "t0": 0,
+   "t1": 112,
+   "line": ""
+  },
+  {
+   "shot": "S4",
+   "a": 336,
+   "b": 448,
+   "t0": 0,
+   "t1": 112,
+   "line": ""
+  },
+  {
+   "shot": "S5",
+   "a": 448,
+   "b": 450,
+   "t0": 0,
+   "t1": 2,
+   "line": ""
+  }
+ ],
+ "shots": [
+  {
+   "id": "S1",
+   "size": "wide",
+   "key": 14,
+   "len": 112,
+   "first": 0,
+   "line": "",
+   "note": "Pip on ledge"
+  },
+  {
+   "id": "S2",
+   "size": "medium",
+   "key": 20,
+   "len": 112,
+   "first": 112,
+   "line": "",
+   "note": "Pip lifts off"
+  },
+  {
+   "id": "S3",
+   "size": "high",
+   "key": 18,
+   "len": 112,
+   "first": 224,
+   "line": "",
+   "note": "Soaring high"
+  },
+  {
+   "id": "S4",
+   "size": "close-up",
+   "key": 12,
+   "len": 112,
+   "first": 336,
+   "line": "",
+   "note": "Title card view"
+  },
+  {
+   "id": "S5",
+   "size": "wide",
+   "key": 25,
+   "len": 2,
+   "first": 448,
+   "line": "",
+   "note": "Wind speed visual"
+  }
+ ],
+ "fx": [
+  {
+   "kind": "flash",
+   "color": "#FFFFFF",
+   "f": 40
+  },
+  {
+   "kind": "shake",
+   "len": 12,
+   "amp": 8,
+   "f": 80
+  }
+ ],
+ "audio": {
+  "voiceVol": 1.0,
+  "sfxVol": 0.8,
+  "musicVol": 0.6
+ }
+}
